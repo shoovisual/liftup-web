@@ -50,8 +50,8 @@
                         <button class="bg-liftup-blue hover:bg-liftup-blue/80  cursor-pointer justify-between flex items-center transition-all duration-300 px-4.5 py-3 rounded-full text-white font-semibold hover-element">
                             Get Quote <span class="px-2 py-2.5 ml-3 flex justify-center bg-white rounded-full"><img src="{{ asset('img/icon_quote.svg') }}" class="w-5" alt=""></span>
                         </button>
-                        <button class="border cursor-pointer flex items-center border-white px-8 py-3 rounded-full text-white font-semibold hover:bg-white hover:text-gray-800 transition-all hover-element">
-                            Read More <span><img src="{{ asset('img/arrow.svg') }}" class="ml-3 h-4" alt=""></span>
+                        <button class="border cursor-pointer flex items-center border-white px-4.5 group py-3 rounded-full text-white font-semibold hover:bg-white hover:text-gray-800 transition-all hover-element">
+                            Read More <span class="px-2 py-2.5 ml-3 flex justify-center bg-liftup-blue/0 group-hover:bg-liftup-blue rounded-full"><img src="{{ asset('img/arrow.svg') }}" class="h-5 block group-hover:hidden" alt=""><img src="{{ asset('img/arrow.svg') }}" class="h-0 group-hover:h-5 hidden group-hover:inline" alt=""></span>
                         </button>
                     </div>
                 </div>
