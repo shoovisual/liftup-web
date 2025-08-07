@@ -1,0 +1,167 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+        --color-liftup-blue: #3076BC;
+        --color-liftup-green: #0ABFD8;
+        --color-liftup-gray: #4a4a4a;
+}
+
+:root {
+    --navy-blue: #3076BC;
+    --light-gray: #f5f7fa;
+    --emerald-green: #0ABFD8;
+    --steel-gray: #4a4a4a;
+    --sky-blue: #00a9e0;
+}
+
+* {
+    /* cursor: none; */
+}
+
+body {
+    background-color: var(--light-gray);
+    overflow-x: hidden;
+}
+
+.custom-cursor {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--navy-blue);
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease;
+    mix-blend-mode: difference;
+}
+
+.custom-cursor.hover {
+    transform: scale(2);
+    background: var(--sky-blue);
+}
+
+
+.btn-primary {
+    background-color: var(--navy-blue);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #00478a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 101, 168, 0.3);
+}
+
+.section-title {
+    color: var(--steel-gray);
+}
+
+.link-hover {
+    color: var(--sky-blue);
+    transition: all 0.3s ease;
+}
+
+.link-hover:hover {
+    color: var(--emerald-green);
+    transform: translateX(5px);
+}
+
+.hero-gradient {
+    background: linear-gradient(135deg, var(--navy-blue) 0%, var(--sky-blue) 100%);
+}
+
+.card-hover {
+    transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 63, 125, 0.15);
+}
+
+.floating {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.slide-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.slide-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+}
+
+.scale-in {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.service-icon {
+    font-size: 3rem;
+    color: var(--emerald-green);
+    margin-bottom: 1rem;
+}
+
+.industry-card {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem 1rem;
+    text-align: center;
+    /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); */
+    transition: all 0.3s ease;
+    border: 1px solid #efefef;
+}
+
+.industry-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.stats-counter {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--emerald-green);
+}
+
+@media (max-width: 768px) {
+    .custom-cursor {
+        display: none;
+    }
+
+    * {
+        cursor: auto !important;
+    }
+}
