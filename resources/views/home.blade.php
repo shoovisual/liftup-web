@@ -8,6 +8,13 @@
     <meta name="description"
         content="Trusted installation, modernization, and maintenance of elevators, escalators & travelators across Tanzania. Member of Gulf Group with 20+ years experience.">
     <meta name="keywords" content="elevators, escalators, travelators, KONE, maintenance, installation, Tanzania, Gulf Group">
+    <meta property="og:title" content="Liftup Tanzania - Elevating Your Standards">
+    <meta property="og:description"
+        content="Trusted installation, modernization, and maintenance of elevators, escalators & travelators across Tanzania. Member of Gulf Group with 20+ years experience.">
+    <meta property="og:image" content="{{ asset('img/favicon.png') }}">
+    <link rel="icon" href="{{ asset('img/favicon.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon">
+
     <!-- Tailwind CSS -->
      @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- Bootstrap Icons -->
@@ -15,6 +22,9 @@
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Slick CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
     <style>
 
     </style>
@@ -25,23 +35,23 @@
     <div class="custom-cursor"></div>
     @include('layouts.sections.navbar')
     <!-- Hero Section -->
-    <section id="home" class="hero-section relative h-[80vh] flex items-center pt-20">
-        <img src="{{ asset('img/hero-cover.jpg') }}" class="absolute top-0 left-0 w-full h-full object-cover" alt="">
+    <section id="home" class="hero-section relative h-[80vh] flex md:items-center pt-20">
+        <img src="{{ asset('img/hero-bg.jpg') }}" class="absolute hidden md:block top-0 left-0 w-full h-full object-cover" alt="">
+        <img src="{{ asset('img/hero-cover-mobile.jpg') }}" class="absolute md:hidden top-0 left-0 w-full h-full object-cover" alt="">
         <div class="container lg:max-w-7xl mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="text-liftup-blue fade-in">
-                    <h1 class="text-5xl md:text-6xl text-black font-bold mb-6 leading-tight"> Lifting Tanzania,<br>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="text-white fade-in">
+                    <h1 class="text-4xl md:text-6xl text-white font-medium mb-6 leading-tight"> Lifting Tanzania,<br>
                         <span>One Floor at a Time</span>
                     </h1>
-                    <p class="text-xl mb-8 opacity-90"> Trusted installation, modernization, and maintenance of elevators, escalators &
+                    <p class="md:text-xl text-lg mb-8 opacity-90"> Trusted installation, modernization, and maintenance of elevators, escalators &
                         travelators across Tanzania. </p>
                     <div class="space-x-4 flex">
-                        <button class="bg-liftup-blue hover:bg-liftup-blue/80 transition-all duration-300 px-8 py-3 rounded-full text-white font-semibold hover-element">
-                            Get Quote
+                        <button class="bg-liftup-blue hover:bg-liftup-blue/80  cursor-pointer justify-between flex items-center transition-all duration-300 px-4.5 py-3 rounded-full text-white font-semibold hover-element">
+                            Get Quote <span class="px-2 py-2.5 ml-3 flex justify-center bg-white rounded-full"><img src="{{ asset('img/icon_quote.svg') }}" class="w-5" alt=""></span>
                         </button>
-                        <button
-                            class="border-2 flex items-center border-gray-500 px-8 py-3 rounded-full text-gray-500 font-semibold hover:bg-white hover:text-gray-800 transition-all hover-element">
-                            Read More <img src="{{ asset('img/arrow.svg') }}" class="ml-2 h-5" alt="">
+                        <button class="border cursor-pointer flex items-center border-white px-8 py-3 rounded-full text-white font-semibold hover:bg-white hover:text-gray-800 transition-all hover-element">
+                            Read More <span><img src="{{ asset('img/arrow.svg') }}" class="ml-3 h-4" alt=""></span>
                         </button>
                     </div>
                 </div>
@@ -65,7 +75,7 @@
                         elevator and escalator solutions. </p>
                     <p class="text-gray-600 mb-8 leading-relaxed"> Our clientele includes government institutions, multinational
                         corporations, and private developments across Tanzania. </p>
-                    <div class="grid grid-cols-4 gap-6">
+                    {{-- <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
                         <div class="text-center p-4 bg-gray-50 rounded-lg card-hover border border-gray-200">
                             <h4 class="font-semibold text-gray-800">Customer Satisfaction</h4>
                         </div>
@@ -78,7 +88,7 @@
                         <div class="text-center p-4 bg-gray-50 rounded-lg card-hover border border-gray-200">
                             <h4 class="font-semibold text-gray-800">Reliable Partnerships</h4>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="slide-in-right">
                     <div class="relative">
@@ -99,102 +109,25 @@
             </div>
         </div>
     </section>
-    <!-- Services Section -->
-    <section id="services" class="py-20 bg-gray-50">
-        <div class="container lg:max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold section-title mb-4">Our Services</h2>
-                <div class="w-24 h-1 bg-green-500 mx-auto mb-6"></div>
-                <p class="text-xl text-gray-600">Comprehensive solutions for all your vertical transport needs</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover scale-in">
-                    <div class="text-center">
-                        <i class="bi bi-tools service-icon"></i>
-                        <h3 class="text-xl font-semibold section-title mb-4">Installation & Replacement</h3>
-                        <p class="text-gray-600 mb-6">Complete turnkey solutions for KONE elevators, escalators, and travelators.</p>
-                        <ul class="text-left text-gray-600 space-y-2 mb-6">
-                            <li><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>Site assessments</li>
-                            <li><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>Shaft preparation</li>
-                            <li><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>Safe, compliant installation</li>
-                            <li><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>Operator training</li>
-                        </ul>
-                        <button class="btn-primary px-6 py-2 rounded-full text-white font-semibold hover-element w-full"> Learn More
-                        </button>
-                    </div>
-                </div>
-                <!-- Service 2 -->
-                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover scale-in">
-                    <div class="text-center">
-                        <i class="bi bi-arrow-up-circle service-icon"></i>
-                        <h3 class="text-xl font-semibold section-title mb-4">Modernization & Parts</h3>
-                        <p class="text-gray-600 mb-6">Upgrade aging equipment with our expert modernization services.</p>
-                        <ul class="text-left text-gray-600 space-y-2 mb-6">
-                            <li><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>Improved performance</li>
-                            <li><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>Reduced energy costs</li>
-                            <li><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>Modern compliance</li>
-                            <li><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>In-house spare parts</li>
-                        </ul>
-                        <button class="btn-primary px-6 py-2 rounded-full text-white font-semibold hover-element w-full"> Learn More
-                        </button>
-                    </div>
-                </div>
-                <!-- Service 3 -->
-                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover scale-in">
-                    <div class="text-center">
-                        <i class="bi bi-headset service-icon"></i>
-                        <h3 class="text-xl font-semibold section-title mb-4">24/7 Maintenance</h3>
-                        <p class="text-gray-600 mb-6">Comprehensive maintenance ensuring smooth operations year-round.</p>
-                        <ul class="text-left text-gray-600 space-y-2 mb-6">
-                            <li><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>Monthly maintenance</li>
-                            <li><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>Emergency response</li>
-                            <li><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>Technical troubleshooting</li>
-                            <li><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>Full parts inventory</li>
-                        </ul>
-                        <button class="btn-primary px-6 py-2 rounded-full text-white font-semibold hover-element w-full"> Learn More
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Products Section -->
-    <section id="products" class="py-20 bg-white">
+    @include('sections.services')
+    <!-- CTA -->
+    <section id="cta" class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold section-title mb-4">Products & Solutions</h2>
-                <div class="w-24 h-1 bg-green-500 mx-auto mb-6"></div>
-                <p class="text-xl text-gray-600">Premium vertical transport solutions for every need</p>
-            </div>
-            <div class="grid md:grid-cols-3 lg:grid-cols-6 gap-6">
-                <div class="text-center p-6 bg-gray-50 rounded-xl card-hover scale-in">
-                    <i class="bi bi-building text-4xl text-blue-600 mb-4"></i>
-                    <h3 class="font-semibold text-gray-800">Passenger Elevators</h3>
+            <div class="grid md:grid-cols-2 rounded-xl bg-liftup-blue gap-12 items-center">
+                <div class="nice-img">
+                    <img src="{{ asset('img/img_ee.jpg') }}" alt="Liftup Tanzania" class="w-full md:rounded-l-xl rounded-t-xl">
                 </div>
-                <div class="text-center p-6 bg-gray-50 rounded-xl card-hover scale-in">
-                    <i class="bi bi-box-seam text-4xl text-liftup-green mb-4"></i>
-                    <h3 class="font-semibold text-gray-800">Goods Elevators</h3>
-                </div>
-                <div class="text-center p-6 bg-gray-50 rounded-xl card-hover scale-in">
-                    <i class="bi bi-heart-pulse text-4xl text-red-600 mb-4"></i>
-                    <h3 class="font-semibold text-gray-800">Bed Elevators</h3>
-                </div>
-                <div class="text-center p-6 bg-gray-50 rounded-xl card-hover scale-in">
-                    <i class="bi bi-eye text-4xl text-purple-600 mb-4"></i>
-                    <h3 class="font-semibold text-gray-800">Scenic Elevators</h3>
-                </div>
-                <div class="text-center p-6 bg-gray-50 rounded-xl card-hover scale-in">
-                    <i class="bi bi-stairs text-4xl text-orange-600 mb-4"></i>
-                    <h3 class="font-semibold text-gray-800">Escalators</h3>
-                </div>
-                <div class="text-center p-6 bg-gray-50 rounded-xl card-hover scale-in">
-                    <i class="bi bi-arrow-right text-4xl text-teal-600 mb-4"></i>
-                    <h3 class="font-semibold text-gray-800">Travelators</h3>
+                <div class="text-white fade-in p-4">
+                    <p class="md:text-4xl text-2xl">Elevator and escalator installation, service, modernization, replacement and supporting world-class people flow in your buildings.</p>
+                    <button class="bg-white px-6 py-2 rounded-full text-liftup-blue text-lg flex items-center font-semibold hover-element mt-6">
+                        Get Quote
+                        <img src="{{ asset('img/icon_quote.svg') }}" class="ml-3 w-5" alt="">
+                    </button>
                 </div>
             </div>
         </div>
     </section>
+    @include('sections.products')
     <!-- Industries Section -->
     <section id="industries" class="py-20 bg-gray-50">
         <div class="container lg:max-w-7xl mx-auto px-4">
@@ -247,8 +180,8 @@
                 <div class="w-24 h-1 bg-green-500 mx-auto mb-6"></div>
                 <p class="text-xl text-gray-600">Get in touch for your vertical transport needs</p>
             </div>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="slide-in-left">
+            <div class="grid md:grid-cols-5 gap-12">
+                <div class="slide-in-left col-span-2">
                     <h3 class="text-2xl font-semibold section-title mb-6">Get In Touch</h3>
                     <div class="space-y-6">
                         <div class="flex items-start space-x-4">
@@ -282,18 +215,17 @@
                     </div>
                     <div class="mt-8">
                         <button class="btn-primary px-8 py-3 rounded-full text-white font-semibold hover-element">
-                            <i class="bi bi-chat-dots mr-2"></i>Start Conversation </button>
+                            <i class="bi bi-chat-dots mr-2"></i>Start Conversation
+                        </button>
                     </div>
                 </div>
-                <div class="slide-in-right">
+                <div class="slide-in-right col-span-3">
                     <div class="bg-gray-50 p-8 rounded-2xl">
                         <h3 class="text-xl font-semibold section-title mb-6">Request a Quote</h3>
                         <form class="space-y-4">
-                            <div>
+                            <div class="grid md:grid-cols-2 gap-4">
                                 <input type="text" placeholder="Full Name"
                                     class="w-full p-3 border border-gray-300 rounded-lg focus:border-green-500 focus:outline-none transition-colors hover-element">
-                            </div>
-                            <div>
                                 <input type="email" placeholder="Email Address"
                                     class="w-full p-3 border border-gray-300 rounded-lg focus:border-green-500 focus:outline-none transition-colors hover-element">
                             </div>
@@ -315,8 +247,9 @@
                                 <textarea placeholder="Project Details" rows="4"
                                     class="w-full p-3 border border-gray-300 rounded-lg focus:border-green-500 focus:outline-none transition-colors hover-element resize-none"></textarea>
                             </div>
-                            <button type="submit" class="btn-primary w-full py-3 rounded-lg text-white font-semibold hover-element">
-                                <i class="bi bi-send mr-2"></i>Send Request </button>
+                            <button type="submit" class="btn-primary flex items-center rounded-full px-8 py-4 text-white font-semibold hover-element">
+                                Send Request <img src="{{ asset('img/arrow.svg') }}" class="w-5.5 ml-2" alt="LiftUp Contact form">
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -324,45 +257,45 @@
         </div>
     </section>
     <!-- Footer -->
-    <footer class="navbar bg-liftup-blue py-8 text-white">
+    <footer class="navbar bg-liftup-blue py-10 text-white">
         <div class="container lg:max-w-7xl mx-auto px-4">
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="fade-in">
+                <div class="fade-in-2">
                     <h3 class="text-xl font-bold mb-4">
-                        <i class="bi bi-building mr-2"></i>Liftup Tanzania
+                        <img src="{{ asset('img/logo-white.svg') }}" class="w-32" alt="">
                     </h3>
-                    <p class="text-gray-300 mb-4"> Elevating Tanzania's standards with world-class vertical transport solutions. A proud
+                    <p class="mb-4"> Elevating Tanzania's standards with world-class vertical transport solutions. A proud
                         member of Gulf Group. </p>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-gray-300 hover:text-white transition-colors hover-element">
+                        <a href="#" class="hover:text-white transition-colors hover-element">
                             <i class="bi bi-facebook text-xl"></i>
                         </a>
-                        <a href="#" class="text-gray-300 hover:text-white transition-colors hover-element">
+                        <a href="#" class="hover:text-white transition-colors hover-element">
                             <i class="bi bi-twitter text-xl"></i>
                         </a>
-                        <a href="#" class="text-gray-300 hover:text-white transition-colors hover-element">
+                        <a href="#" class="hover:text-white transition-colors hover-element">
                             <i class="bi bi-linkedin text-xl"></i>
                         </a>
-                        <a href="#" class="text-gray-300 hover:text-white transition-colors hover-element">
+                        <a href="#" class="hover:text-white transition-colors hover-element">
                             <i class="bi bi-instagram text-xl"></i>
                         </a>
                     </div>
                 </div>
-                <div class="fade-in">
+                <div class="fade-in-2">
                     <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-300 hover:text-white transition-colors hover-element">Home</a></li>
-                        <li><a href="#about" class="text-gray-300 hover:text-white transition-colors hover-element">About Us</a></li>
-                        <li><a href="#services" class="text-gray-300 hover:text-white transition-colors hover-element">Services</a>
+                        <li><a href="#home" class="hover:text-white transition-colors hover-element">Home</a></li>
+                        <li><a href="#about" class="hover:text-white transition-colors hover-element">About Us</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors hover-element">Services</a>
                         </li>
-                        <li><a href="#products" class="text-gray-300 hover:text-white transition-colors hover-element">Products</a>
+                        <li><a href="#products" class="hover:text-white transition-colors hover-element">Products</a>
                         </li>
-                        <li><a href="#industries" class="text-gray-300 hover:text-white transition-colors hover-element">Industries</a>
+                        <li><a href="#industries" class="hover:text-white transition-colors hover-element">Industries</a>
                         </li>
-                        <li><a href="#contact" class="text-gray-300 hover:text-white transition-colors hover-element">Contact</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors hover-element">Contact</a></li>
                     </ul>
                 </div>
-                <div class="fade-in">
+                <div class="fade-in-2">
                     <h4 class="text-lg font-semibold mb-4">Emergency Support</h4>
                     <div class="space-y-3">
                         <div class="flex items-center space-x-3">
@@ -380,12 +313,12 @@
                     </div>
                 </div>
             </div>
-            <hr class="border-gray-600 my-8">
-            <div class="text-center flex items-center justify-between text-gray-300">
+            <hr class="border-white my-8">
+            <div class="text-center flex items-center justify-between text-white">
                 <p>&copy;{{ date('Y') }} Liftup Tanzania Limited - Elevating Your Standards. Powered by Gulf Group.</p>
                 <ul class="flex justify-center space-x-6 mt-4">
-                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors hover-element">Privacy Policy</a></li>
-                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors hover-element">Cookie Policy</a></li>
+                    <li><a href="#" class="text-white hover:text-white transition-colors hover-element">Privacy Policy</a></li>
+                    <li><a href="#" class="text-white hover:text-white transition-colors hover-element">Cookie Policy</a></li>
                 </ul>
             </div>
         </div>
@@ -395,9 +328,9 @@
         class="fixed bottom-8 right-8 bg-liftup-green text-white p-3 rounded-full shadow-lg hover:bg-green-700 transition-all opacity-0 pointer-events-none hover-element">
         <img src="{{ asset('img/arrow-up.svg') }}" class="w-6 h-6 fill-white" alt="">
     </button>
-    <script>
 
-    </script>
+
+
 </body>
 
 </html>

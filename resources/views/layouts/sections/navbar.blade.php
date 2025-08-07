@@ -3,11 +3,15 @@
         <div class="w-full border-b border-gray-300"><!-- Add this div for spacing -->
             <div class="container lg:max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
                 <div class="navbar-brand">
-                    <img src="{{ asset('img/logo.svg') }}" class="w-24 object-cover" alt="">
+                    <img src="{{ asset('img/logo.svg') }}" class="w-32 object-cover" alt="">
                 </div>
-                <div class="hidden md:flex space-x-8">
+                <div class="hidden md:flex items-center space-x-8">
                     <a href="tel:+255 22 211 0000" class="text-gray-800 transition-colors">+255 714 433 337</a>
                     <a href="mailto:info@liftup.co.tz" class="text-gray-800 transition-colors">info@liftup.co.tz</a>
+                    <button class="bg-liftup-blue hover:bg-liftup-blue/80 transition-all duration-300 px-8 py-3 rounded-full text-white font-semibold hover-element flex items-center">
+                        Get Quote
+                        <img src="{{ asset('img/arrow.svg') }}" class="ml-3 w-5" alt="">
+                    </button>
                 </div>
             </div>
         </div>
