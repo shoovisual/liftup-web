@@ -23,8 +23,8 @@ class ContactController extends Controller
 
         try {
             // Send email to the specified address
-            Mail::to('shoovisual@gmail.com')->send(new ContactFormMail($validatedData));
-            
+            Mail::to('assad@liftup.co.tz')->send(new ContactFormMail($validatedData));
+
             // Log the submission for record keeping
             Log::info('Contact form submission', [
                 'name' => $validatedData['name'],
@@ -32,16 +32,16 @@ class ContactController extends Controller
                 'company' => $validatedData['company'] ?? 'Not provided',
                 'service' => $validatedData['service']
             ]);
-            
+
             return redirect()->back()->with('success', 'Thank you for your message! We will get back to you soon.');
-            
+
         } catch (\Exception $e) {
             // Log the error
             Log::error('Contact form email failed', [
                 'error' => $e->getMessage(),
                 'data' => $validatedData
             ]);
-            
+
             return redirect()->back()->with('error', 'Sorry, there was an issue sending your message. Please try again or contact us directly.');
         }
     }
