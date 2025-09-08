@@ -191,27 +191,6 @@
             }
         });
 
-        // Form Submission (Demo)
-        const form = document.querySelector('form');
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            // Simple form validation and success message
-            const formData = new FormData(form);
-
-            // Simulate form submission
-            gsap.to(form, {
-                opacity: 0.5,
-                duration: 0.3,
-                onComplete: () => {
-                    setTimeout(() => {
-                        alert('Thank you for your inquiry! We will contact you soon.');
-                        form.reset();
-                        gsap.to(form, { opacity: 1, duration: 0.3 });
-                    }, 1000);
-                }
-            });
-        });
 
         // Parallax Effect for Hero Section
         gsap.to(".floating", {

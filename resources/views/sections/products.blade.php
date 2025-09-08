@@ -49,11 +49,14 @@
 
         <div class="products-slider">
             @foreach ($products as $product)
-                <div class="my-5 py-3 group transition-all duration-300 cursor-pointer mx-3">
-                    <img src="{{ asset($product['src']) }}" alt="{{ $product['title'] }}" class="mx-auto mb-4">
-                    <div class="absolute-2">
-                        <h3 class="text-3xl group-hover:underline mb-3">{{ $product['title'] }}</h3>
+                <div class="my-5 py-2 group transition-all border-b-2 duration-300 cursor-pointer mx-3">
+                    <img src="{{ asset($product['src']) }}" alt="{{ $product['title'] }}" class="mx-auto">
+                    <div class="absolute-2 px-4 py-4 rounded-b-xl">
+                        <h3 class="text-3xl mb-3">{{ $product['title'] }}</h3>
                         <p class="text-lg">{{ $product['description'] }}</p>
+                        <button class="justify-between w-full text-lg flex items-center mt-8">
+                            Get Quote <img src="{{ asset('img/icon_quote.svg') }}" class="w-4.5 ml-2 inline" alt="">
+                        </button>
                     </div>
                 </div>
             @endforeach

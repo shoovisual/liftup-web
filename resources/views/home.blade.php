@@ -47,10 +47,10 @@
                     <p class="md:text-xl text-lg mb-8 opacity-90"> Trusted installation, modernization, and maintenance of elevators, escalators &
                         travelators across Tanzania. </p>
                     <div class="space-x-4 flex">
-                        <button class="bg-liftup-blue hover:bg-liftup-blue/80  cursor-pointer justify-between flex items-center transition-all duration-300 px-4.5 py-3 rounded-full text-white font-semibold hover-element">
+                        <button class="bg-liftup-blue hover:bg-liftup-blue/80 cursor-pointer justify-between flex items-center transition-all duration-300 px-4.5 py-3 rounded-full text-white font-semibold hover-element">
                             Get Quote <span class="px-2 py-2.5 ml-3 flex justify-center bg-white rounded-full"><img src="{{ asset('img/icon_quote.svg') }}" class="w-5" alt=""></span>
                         </button>
-                        <button class="border cursor-pointer flex items-center border-white px-4.5 group py-3 rounded-full text-white font-semibold hover:bg-white hover:text-gray-800 transition-all hover-element">
+                        <button class="border cursor-pointer flex items-center md:border-white/15 border-white bg-white/5 backdrop-blur-sm px-4.5 group py-3 rounded-full text-white font-semibold hover:bg-white hover:text-gray-800 transition-all hover-element">
                             Read More <span class="px-2 py-2.5 ml-3 flex justify-center bg-liftup-blue/0 group-hover:bg-liftup-blue rounded-full"><img src="{{ asset('img/arrow.svg') }}" class="h-5 block group-hover:hidden" alt=""><img src="{{ asset('img/arrow.svg') }}" class="h-0 group-hover:h-5 hidden group-hover:inline" alt=""></span>
                         </button>
                     </div>
@@ -75,24 +75,10 @@
                         elevator and escalator solutions. </p>
                     <p class="text-gray-600 mb-8 leading-relaxed"> Our clientele includes government institutions, multinational
                         corporations, and private developments across Tanzania. </p>
-                    {{-- <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-                        <div class="text-center p-4 bg-gray-50 rounded-lg card-hover border border-gray-200">
-                            <h4 class="font-semibold text-gray-800">Customer Satisfaction</h4>
-                        </div>
-                        <div class="text-center p-4 bg-gray-50 rounded-lg card-hover border border-gray-200">
-                            <h4 class="font-semibold text-gray-800">Technical Innovation</h4>
-                        </div>
-                        <div class="text-center p-4 bg-gray-50 rounded-lg card-hover border border-gray-200">
-                            <h4 class="font-semibold text-gray-800">Integrity</h4>
-                        </div>
-                        <div class="text-center p-4 bg-gray-50 rounded-lg card-hover border border-gray-200">
-                            <h4 class="font-semibold text-gray-800">Reliable Partnerships</h4>
-                        </div>
-                    </div> --}}
                 </div>
                 <div class="slide-in-right">
                     <div class="relative">
-                        <div class="bg-gradient-to-br from-liftup-blue to-liftup-green p-8 rounded-2xl text-white">
+                        <div class="bg-liftup-blue p-8 rounded-lg text-white">
                             <i class="bi bi-building-gear text-6xl mb-4 opacity-80"></i>
                             <h3 class="text-2xl font-bold mb-4">Gulf Group Member</h3>
                             <p class="mb-6 opacity-90"> Leveraging decades of experience in import, export, and distribution across multiple
@@ -115,7 +101,7 @@
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-2 rounded-xl bg-liftup-blue gap-12 items-center">
                 <div class="nice-img">
-                    <img src="{{ asset('img/img_ee.jpg') }}" alt="Liftup Tanzania" class="w-full md:rounded-l-xl rounded-t-xl">
+                    <img src="{{ asset('img/img_ee.jpg') }}" alt="Liftup Tanzania" class="w-full md:rounded-l-xl">
                 </div>
                 <div class="text-white fade-in p-4">
                     <p class="md:text-4xl text-2xl">Elevator and escalator installation, service, modernization, replacement and supporting world-class people flow in your buildings.</p>
@@ -222,30 +208,74 @@
                 <div class="slide-in-right col-span-3">
                     <div class="bg-gray-50 p-8 rounded-2xl">
                         <h3 class="text-xl font-semibold section-title mb-6">Request a Quote</h3>
-                        <form class="space-y-4">
+                        
+                        @if(session('success'))
+                            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+                                <div class="flex">
+                                    <div class="py-1"><svg class="fill-current h-6 w-6 text-green-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/></svg></div>
+                                    <div>
+                                        <p class="font-bold">Success!</p>
+                                        <p class="text-sm">{{ session('success') }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                        
+                        @if(session('error'))
+                            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                                <div class="flex">
+                                    <div class="py-1"><svg class="fill-current h-6 w-6 text-red-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/></svg></div>
+                                    <div>
+                                        <p class="font-bold">Error!</p>
+                                        <p class="text-sm">{{ session('error') }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                        
+                        @if($errors->any())
+                            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                                <div class="flex">
+                                    <div class="py-1"><svg class="fill-current h-6 w-6 text-red-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/></svg></div>
+                                    <div>
+                                        <p class="font-bold">Please fix the following errors:</p>
+                                        <ul class="text-sm list-disc list-inside">
+                                            @foreach($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                        
+                        <form class="space-y-4" action="{{ route('contact.send') }}" method="POST">
+                            @csrf
                             <div class="grid md:grid-cols-2 gap-4">
-                                <input type="text" placeholder="Full Name"
-                                    class="w-full p-3 border border-gray-300 rounded-lg focus:border-green-500 focus:outline-none transition-colors hover-element">
-                                <input type="email" placeholder="Email Address"
-                                    class="w-full p-3 border border-gray-300 rounded-lg focus:border-green-500 focus:outline-none transition-colors hover-element">
+                                <input type="text" name="name" placeholder="Full Name" value="{{ old('name') }}"
+                                    class="w-full p-3 border {{ $errors->has('name') ? 'border-red-500' : 'border-gray-300' }} rounded-lg focus:border-green-500 focus:outline-none transition-colors hover-element" required>
+                                <input type="email" name="email" placeholder="Email Address" value="{{ old('email') }}"
+                                    class="w-full p-3 border {{ $errors->has('email') ? 'border-red-500' : 'border-gray-300' }} rounded-lg focus:border-green-500 focus:outline-none transition-colors hover-element" required>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <input type="tel" name="phone" placeholder="Phone Number" value="{{ old('phone') }}"
+                                    class="w-full p-3 border {{ $errors->has('phone') ? 'border-red-500' : 'border-gray-300' }} rounded-lg focus:border-green-500 focus:outline-none transition-colors hover-element" required>
+                                <input type="text" name="company" placeholder="Company Name (Optional)" value="{{ old('company') }}"
+                                    class="w-full p-3 border {{ $errors->has('company') ? 'border-red-500' : 'border-gray-300' }} rounded-lg focus:border-green-500 focus:outline-none transition-colors hover-element">
                             </div>
                             <div>
-                                <input type="tel" placeholder="Phone Number"
-                                    class="w-full p-3 border border-gray-300 rounded-lg focus:border-green-500 focus:outline-none transition-colors hover-element">
-                            </div>
-                            <div>
-                                <select
-                                    class="w-full p-3 border border-gray-300 rounded-lg focus:border-green-500 focus:outline-none transition-colors hover-element">
-                                    <option>Select Service</option>
-                                    <option>New Installation</option>
-                                    <option>Modernization</option>
-                                    <option>Maintenance</option>
-                                    <option>Emergency Repair</option>
+                                <select name="service"
+                                    class="w-full p-3 border {{ $errors->has('service') ? 'border-red-500' : 'border-gray-300' }} rounded-lg focus:border-green-500 focus:outline-none transition-colors hover-element" required>
+                                    <option value="">Select Service</option>
+                                    <option value="New Installation" {{ old('service') == 'New Installation' ? 'selected' : '' }}>New Installation</option>
+                                    <option value="Modernization" {{ old('service') == 'Modernization' ? 'selected' : '' }}>Modernization</option>
+                                    <option value="Maintenance" {{ old('service') == 'Maintenance' ? 'selected' : '' }}>Maintenance</option>
+                                    <option value="Emergency Repair" {{ old('service') == 'Emergency Repair' ? 'selected' : '' }}>Emergency Repair</option>
                                 </select>
                             </div>
                             <div>
-                                <textarea placeholder="Project Details" rows="4"
-                                    class="w-full p-3 border border-gray-300 rounded-lg focus:border-green-500 focus:outline-none transition-colors hover-element resize-none"></textarea>
+                                <textarea name="message" placeholder="Project Details" rows="4" required
+                                    class="w-full p-3 border {{ $errors->has('message') ? 'border-red-500' : 'border-gray-300' }} rounded-lg focus:border-green-500 focus:outline-none transition-colors hover-element resize-none">{{ old('message') }}</textarea>
                             </div>
                             <button type="submit" class="btn-primary flex items-center rounded-full px-8 py-4 text-white font-semibold hover-element">
                                 Send Request <img src="{{ asset('img/arrow.svg') }}" class="w-5.5 ml-2" alt="LiftUp Contact form">

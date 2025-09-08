@@ -41,17 +41,17 @@
                         'Full parts inventory',
                     ],
                 ],
-                // [
-                //     'icon' => 'img/repair.svg',
-                //     'title' => 'Lift Repairs',
-                //     'description' => 'Comprehensive maintenance ensuring smooth operations year-round.',
-                //     'features' => [
-                //         'Monthly maintenance',
-                //         'Emergency response',
-                //         'Technical troubleshooting',
-                //         'Full parts inventory',
-                //     ],
-                // ],
+                [
+                    'icon' => 'img/repair.svg',
+                    'title' => 'Lift Repairs',
+                    'description' => 'Comprehensive maintenance ensuring smooth operations year-round.',
+                    'features' => [
+                        'Monthly maintenance',
+                        'Emergency response',
+                        'Technical troubleshooting',
+                        'Full parts inventory',
+                    ],
+                ],
             ];
             $useSlider = count($services) > 3;
             @endphp
@@ -93,56 +93,53 @@
         const itemCount = $slider.children().length;
         const isMobile = $(window).width() < 768;
 
-        if (isMobile) {
-            // Always enable slider on mobile
+        const prevArrow = `
+        <button type="button" class="slick-prev border border-gray-100 p-4 cursor-pointer rounded-full bg-white shadow-md custom-arrow left-0">
+            <img src="{{ asset('img/icon_quote.svg') }}" class="w-6 h-6 rotate-180" alt="Previous">
+        </button>
+        `;
+
+        const nextArrow = `
+            <button type="button" class="slick-next border border-gray-100 p-4 cursor-pointer rounded-full bg-white shadow-md custom-arrow right-0">
+                <img src="{{ asset('img/icon_quote.svg') }}" class="w-6 h-6" alt="Next">
+            </button>
+        `;
+
+        if (isMobile || itemCount > 3) {
             if (!$slider.hasClass('slick-initialized')) {
                 $slider.slick({
                     dots: false,
                     infinite: true,
-                    slidesToShow: 1,
+                    slidesToShow: isMobile ? 1 : 3,
                     slidesToScroll: 1,
-                    arrows: false,
-                    autoplay: true,
+                    arrows: true,
+                    prevArrow: prevArrow,
+                    nextArrow: nextArrow,
+                    autoplay: isMobile,
                     autoplaySpeed: 6000,
                     pauseOnHover: true,
                     draggable: true,
                     swipe: true,
-                    adaptiveHeight: true
+                    adaptiveHeight: true,
+                    responsive: [
+                        {
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: 2
+                            }
+                        },
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 1
+                            }
+                        }
+                    ]
                 });
             }
         } else {
-            if (itemCount > 3) {
-                // Enable slider on large screens if items > 3
-                if (!$slider.hasClass('slick-initialized')) {
-                    $slider.slick({
-                        dots: false,
-                        infinite: true,
-                        slidesToShow: 3,
-                        slidesToScroll: 1,
-                        arrows: false,
-                        autoplay: true,
-                        autoplaySpeed: 6000,
-                        responsive: [
-                            {
-                                breakpoint: 1024,
-                                settings: {
-                                    slidesToShow: 2
-                                }
-                            },
-                            {
-                                breakpoint: 768,
-                                settings: {
-                                    slidesToShow: 1
-                                }
-                            }
-                        ]
-                    });
-                }
-            } else {
-                // Destroy slider on large screens if items <= 3
-                if ($slider.hasClass('slick-initialized')) {
-                    $slider.slick('unslick');
-                }
+            if ($slider.hasClass('slick-initialized')) {
+                $slider.slick('unslick');
             }
         }
     }
@@ -152,5 +149,6 @@
         initServiceSlider();
     });
 });
+
 
 </script>
