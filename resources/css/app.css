@@ -32,6 +32,7 @@
 body {
     background-color: var(--light-gray);
     overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
 }
 
 .custom-cursor {
